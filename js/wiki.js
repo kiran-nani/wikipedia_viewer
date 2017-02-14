@@ -1,7 +1,11 @@
 // declaring consts 
 const searchIcon = document.querySelector('.fa-search');
 const input = document.querySelector('input');
+const endpoint = 'https://en.wikipedia.org/w/api.php?action=opensearch&datatype=json&origin=*&limit=10&search=';
+const results = document.querySelector('.results-container');
 
+
+let searchResults = [];
 
 // Functions that fire from HTML element input
 
@@ -17,18 +21,62 @@ function revertIconColor() {
 
 // function used to call wikipedia api and return the 
 function searchWiki() {
+
+	// when the user wants to make multiple searches this will clear previous searches
+	results.innerHTML = '';
+
+	// assign user's search item to a variable
 	let searchItem = input.value;
-	let endpoint = `https://en.wikipedia.org/w/api.php?action=opensearch&datatype=json&origin=*&limit=10&search=${searchItem}`
-	fetch(endpoint)
+	
+	// use fetch to grab the json data from wikipedia api
+	fetch(endpoint+searchItem)
 	.then(blob => blob.json())
-	.then(data => console.log(data));
+	.then(data => {
+		// loop through each element in the first array returned from api
+		for (let i = 0; i < data[1].length; i++) {
+		
+		// assign the entirity of the HTML for each card to a variable
+		let html =	
+		`<div class="result-card">
+				<div class="head">
+					<div>	
+						<h4><a href=${data[3][i]} target="_blank">${data[1][i]}</a></h4>
+					</div>
+				</div>
+				<div class="par">
+					<div>
+						<p>${data[2][i]}</p>
+					</div>
+				</div>
+			</div>`
+
+			// continue to add each html card to the results container
+			// the key here was utilizing the += operator 
+			results.innerHTML += html;
+		}
+
+	});
+
+	
+	
+
+	// renderCards();
+
+	
 }
+
+// function renderCards() {
+// 	for (let i = 0; i < searchResults[1].length; i++) {
+// 		console.table(searchResults[1]);
+// 	}
+// }
 
 
 // Event Listeners
 
 // listens for a mouse click on the search icon then runs the searchWiki function
 searchIcon.addEventListener('click', searchWiki);
+window.onkeyup = function(e) {if (e.keyCode === 13) {searchWiki();}}
 
 // listens on the window for the 'enter' key to be pressed and will also run searchWiki function
 // window.addEventListener('keyup');
