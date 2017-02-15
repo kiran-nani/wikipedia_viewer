@@ -8,6 +8,6 @@ I coded my original with basic HTML, Bootstrap, and jQuery. I wanted to redo it 
 
 This version was coded with HTML, CSS, and Vanilla JavaScript. That said, I did utilize the sliding animations from [Animate.css](https://daneden.github.io/animate.css/). Since I knew I would only need 2 animations, I pulled them out of the entire file so as not to include code I was not using.
 
-This is 'complete' in the sense that it works how I want it to, but only in desktop versions of Chrome, Firefox, and Opera.
+I replaced the use of fetch to [axios](https://github.com/mzabriskie/axios), which allowed the API call to be completed.
 
-I will need to research and include a polyfill for Safari desktop as well as mobile browsers.
+For reasons I cannot currently explain though, the CSS animations don't seem to really fire in mobile browsers. 
