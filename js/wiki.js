@@ -37,7 +37,7 @@ function searchWiki() {
 		
 		// assign the entirity of the HTML for each card to a variable
 		let html =	
-		`<div class="result-card">
+		`<div class="result-card animated">
 				<div class="head">
 					<div>	
 						<h4><a href=${data[3][i]} target="_blank">${data[1][i]}</a></h4>
@@ -54,22 +54,15 @@ function searchWiki() {
 			// the key here was utilizing the += operator 
 			results.innerHTML += html;
 		}
-
+			const cards = document.querySelectorAll('.result-card');
+			cards.forEach((card, index) => {
+			index % 2 === 0 ? card.classList.add('slideInLeft') : card.classList.add('slideInRight');
+		});
 	});
 
-	
-	
-
-	// renderCards();
 
 	
 }
-
-// function renderCards() {
-// 	for (let i = 0; i < searchResults[1].length; i++) {
-// 		console.table(searchResults[1]);
-// 	}
-// }
 
 
 // Event Listeners
