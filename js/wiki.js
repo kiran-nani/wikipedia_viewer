@@ -5,6 +5,7 @@ const endpoint = 'https://en.wikipedia.org/w/api.php?action=opensearch&datatype=
 const results = document.querySelector('.results-container');
 
 
+
 let searchResults = [];
 
 // Functions that fire from HTML element input
@@ -28,10 +29,11 @@ function searchWiki() {
 	// assign user's search item to a variable
 	let searchItem = input.value;
 	
-	// use fetch to grab the json data from wikipedia api
-	fetch(endpoint+searchItem)
-	.then(blob => blob.json())
-	.then(data => {
+	// use axios to grab the data from wikipedia api
+	// axios: https://github.com/mzabriskie/axios
+	axios.get(endpoint+searchItem)
+	.then(blob => {
+		let data = blob.data;
 		// loop through each element in the first array returned from api
 		for (let i = 0; i < data[1].length; i++) {
 		
@@ -59,9 +61,6 @@ function searchWiki() {
 			index % 2 === 0 ? card.classList.add('slideInLeft') : card.classList.add('slideInRight');
 		});
 	});
-
-
-	
 }
 
 
