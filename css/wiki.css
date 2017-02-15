@@ -26,8 +26,11 @@ body {
 .ui-container {
   max-width: 768px;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin: 0 auto;
+  -ms-flex-flow: column;
   flex-flow: column;
   overflow: auto; }
 
@@ -35,18 +38,30 @@ body {
 	3. INPUT & ICONS
 \*----------------------------*/
 .input-container {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   font-size: 32px;
   height: 50px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   margin-bottom: 20px;
   width: 100%; }
 
 .search-field {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   height: 100%;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   margin-bottom: 20px;
   width: 100%; }
@@ -56,16 +71,21 @@ input {
   color: #212121;
   display: inline;
   font-size: 16px;
-  padding: 2%;
   height: 100%;
-  outline: none; }
+  margin: 0;
+  outline: none;
+  padding: 2%; }
 
 .fa-wikipedia-w {
   margin-left: 5px; }
 
 .icon-container {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   font-size: 22px;
   height: 100%; }
@@ -79,19 +99,24 @@ input {
 	4. CARD-CONTAINER
 \*----------------------------*/
 .results-container {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-bottom: 20px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   font-size: 16px;
   text-align: left; }
 
 .result-card {
   background: #fbfbfb;
-  -webkit-box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.75);
-  margin-top: 1.5%;
+  margin-top: 1em;
   width: 100%; }
 
 .head {
@@ -118,6 +143,7 @@ h4:after {
   display: block;
   height: 3px;
   margin: auto;
+  -webkit-transition: width .25s ease, background-color .5s ease;
   transition: width .25s ease, background-color .5s ease;
   width: 0px; }
 
