@@ -11,3 +11,6 @@ This version was coded with HTML, CSS, and Vanilla JavaScript. That said, I did 
 I replaced the use of fetch to [axios](https://github.com/mzabriskie/axios), which allowed the API call to be completed.
 
 For reasons I cannot currently explain though, the CSS animations don't seem to really fire in mobile browsers. 
+
+- [ ] remove rounded input boxes for mobile devices
+- [ ] research and try to fix why css animations don't work on mobile/iOS devices
